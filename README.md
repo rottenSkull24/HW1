@@ -1,4 +1,4 @@
-# HW1-Temp
+# HW1
 COMP272 Programming Assignment 1
 
 This repository is to be used for programming assignment #1. The Main.java file is the main driver which performs the testing. Do NOT modify this file. You must pass all supplied tests that are currently contained in the file Main.java to get full credit.
