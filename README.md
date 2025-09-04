@@ -5,4 +5,6 @@ This repository is to be used for programming assignment #1. The Main.java file 
 
 This assignment has three parts. The first part is writing two methods that manipulate a linked-list. The second part allows you to utilize the stack class contained in Java's Collection Framework library. The last part is performing simple algorithms analysis on two methods and returning the correct option number for each.
 
-Difficulty Level / Grading: These should be fairly easy and s sraightforward. All tests must be passed to get full credit. When you run the program, it will display the points you will receive (minus the tests for the algorithm analysis -- this latter will br graded manually when the program is ran.
+Difficulty Level / Grading:
+These assignments are designed to be straightforward. To earn full credit, you must pass all tests.
+When you run your program, it will display the points you earn (except for the algorithm analysis tests). In my version, the algorithm analysis tests will also show their points. In your version, those points will not be displayed.
