@@ -1,6 +1,6 @@
 
 /*
- * *** PLACE YOUR NAME / SECTION  HERE ***
+ * *** Jesus Ortega / 002 ***
  *
  * Homework # 1 (Programming Assignment). This Java class defines some basic
  * manipulation operations on Linked-Lists and Stacks.
@@ -65,7 +65,7 @@ public class HW1 {
             } else {
                 // locate the node before the point of insertion
                 Node current = this.head;
-
+                
                 // Identify where to place the item to insert
                 while (current.next != null && current.next.data < data) {
                     current = current.next;
@@ -87,8 +87,15 @@ public class HW1 {
          */
         public void removeElementsLT ( int ltValue ) {
 
-            // YOUR CODE GOES HERE
-
+            Node current = this.head;
+            while (current != null) {
+                if (current.data < ltValue) {
+                    removeElement(current.data);
+                    current = head; // return to head after removal
+                } else {
+                    current = current.next; // Move to next node
+                }
+            }
             return;
         }
 
@@ -99,9 +106,17 @@ public class HW1 {
          */
 
         public void removeElement ( int value ) {
-
-            // YOUR CODE GOES HERE
-
+            while (head != null && head.data == value) {
+                head = head.next; // removes matching head node
+            }
+            Node current = head;
+            while(current != null && current.next != null) {
+                if (current.next.data == value) {
+                    current.next = current.next.next; // bypass the node to remove it
+                } else {
+                    current = current.next; // Moves to next node
+                }
+            }
             return;
         }
 
