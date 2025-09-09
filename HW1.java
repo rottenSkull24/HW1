@@ -78,12 +78,16 @@ public class HW1 {
         }
 
 
-        /*
+    
+        /**
          * Method removeElementsLT() - this method removes all nodes that contain a
          * value that is less than the provided parameter 'ltValue'.
          *
          * The method will invoke the method removeElements for each element
          * found in the linked-list that is less than thr parameter value passed.
+         * @precondition LinkedList is not empty.
+         * @postcondition All nodes with data less than 'ltValue' are removed from the list. 
+         * @param ltValue
          */
         public void removeElementsLT ( int ltValue ) {
 
@@ -100,9 +104,13 @@ public class HW1 {
         }
 
 
-        /*
+        
+        /**
          * Method removeElement() - this method removes all nodes that contain a
-         * value equal to the value the provided parameter 'value'.
+         * value equal to the value the provided parameter 'value'.         
+         * @param value
+         * @precondition LinkedList is not empty.
+         * @postcondition All nodes with data equal to 'value' are removed from the list.
          */
 
         public void removeElement ( int value ) {
@@ -161,26 +169,38 @@ public class HW1 {
 
     static class Stacks {
 
-        /*
+        /**
          * Method isPalindrome() - This method will return the boolean value 'true'
          * or 'false' on if the passed in parameter string is a palindrome or not.
          *
          * The routine should be case insensitive! Meaning 'RaCe cAr' is a palindrome.
-         * Moreover, spaces are ignore, so both 'race car' and 'racecar' are plaindromes.
+         * Moreover, spaces are ignore, so both 'race car' and 'racecar' are palindromes.
          *
          * The method should utilize the provided Stack class.
+         * @param input
+         * @return true if input is a palindrome, false otherwise.
+         * @precondition input is not null.
+         * @postcondition input is unchanged.
          */
-        public static boolean isPalindrome(String input) {
+            public static boolean isPalindrome(String input) {
 
             Stack<Character> stack = new Stack<>();
             input = input.toLowerCase().replaceAll("\\s+", "");
 
-            // Your CODE GOES HERE
-            return false;
+            for (int i = 0; i < input.length(); i++) { //pushes all characters of input onto stack for testing, so it doesn't throw an exception.
+                stack.push(input.charAt(i));
+            }
+
+            for (int i = 0; i < input.length(); i++) {
+                if (input.charAt(i) != stack.pop()) {
+                    return false;
+                }
+            }
+            return true;
         }
 
 
-        /*
+        /**
          * Method findLargestk() - This method will return the largest index
          * position in the stack for the value specified by the parameter 'k'.
          *
@@ -194,11 +214,22 @@ public class HW1 {
          * stack should be identical to when this method is passed. One trick as you
          * pop elements off the passed in stack, place them in a temp stack. Then when
          * completed, place them all back in teh original stack.
+         * @param stack
+         * @param k
+         * @return largest index position of value 'k' in stack, -1 if 'k' not found.
+         * @precondition stack is not null, and contains at least one element.
+         * @postcondition stack is unchanged.
          */
         public static int findLargestK(Stack<Integer> stack, int k) {
-
-            // YOUR CODE GOES HERE
-            return -1;
+            int index = -1;
+            for(int i = stack.size() - 1; i >= 0; i--) {
+                if(stack.get(i) == k) {
+                    index = i;
+                    break; //exits loop when the largest index is found, no need to look through the stack since this goes backwards.
+                }
+            }
+            
+            return index;
         }
 
     }  // End class Stacks
@@ -234,7 +265,7 @@ public class HW1 {
         */
 
         // RETURN THE CORRECT OPTION NUMBER LISTED ABOVE
-        return -1;
+        return 3;
     }
 
 
@@ -255,7 +286,7 @@ public class HW1 {
          */
 
         // RETURN THE CORRECT OPTION LISTED ABOVE
-        return -1;
+        return 2;
     }
 
 }
